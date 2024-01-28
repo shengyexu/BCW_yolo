@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "param_xsy.py", line 60, in <module>
+    main(opt)
+  File "param_xsy.py", line 40, in main
+    model = Model(opt.cfg, ch=3, nc=nc, anchors=hyp.get('anchors')).to(device)  # create
+  File "/data5/1034_2group/XSY/525try/final_code/models/yolo.py", line 195, in __init__
+    m.stride = torch.tensor([s / x.shape[-2] for x in forward(torch.zeros(1, ch, s, s))])  # forward
+  File "/data5/1034_2group/XSY/525try/final_code/models/yolo.py", line 194, in <lambda>
+    forward = lambda x: self.forward(x)[0] if isinstance(m, Segment) else self.forward(x)
+  File "/data5/1034_2group/XSY/525try/final_code/models/yolo.py", line 209, in forward
+    return self._forward_once(x, profile, visualize)  # single-scale inference, train
+  File "/data5/1034_2group/XSY/525try/final_code/models/yolo.py", line 121, in _forward_once
+    x = m(x)  # run
+  File "/home/lingzhuokong/anaconda3/envs/pytorch/lib/python3.7/site-packages/torch/nn/modules/module.py", line 727, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/data5/1034_2group/XSY/525try/final_code/models/common.py", line 946, in forward
+    return self.conv(self.silu(weight[0] * x[0] + weight[1] * x[1] + weight[2] * x[2]))
+RuntimeError: The size of tensor a (96) must match the size of tensor b (192) at non-singleton dimension 1
+torch.Size([])
+torch.Size([1, 96, 32, 32])
+torch.Size([])
+torch.Size([1, 96, 32, 32])
+torch.Size([])
+torch.Size([1, 192, 32, 32])
+
